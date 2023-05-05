@@ -6,53 +6,69 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvNombreEj"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="TextView"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="3"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvSeries"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvNombreEj"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="4"
-                android:textSize="16sp" />
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/tv"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:text="X"
-                android:textSize="16sp" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvReps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                android:text="12"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tvSeries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="4"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:text="X"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvReps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="12"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/mas" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,15 +8,13 @@
 
     <ImageView
         android:id="@+id/ivBack3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="479dp"
+        android:layout_height="975dp"
         android:background="#070707"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/registro" />
 
     <TextView
@@ -40,9 +38,9 @@
         android:layout_marginEnd="60dp"
         android:backgroundTint="#FFFF"
         android:ems="10"
+        android:hint="Nombre"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
         android:textColor="#FFFF"
         android:textColorHint="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,9 +57,9 @@
         android:layout_marginEnd="60dp"
         android:backgroundTint="#FFFF"
         android:ems="10"
+        android:hint="Apellidos"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Apellidos"
         android:textColor="#FFFF"
         android:textColorHint="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
