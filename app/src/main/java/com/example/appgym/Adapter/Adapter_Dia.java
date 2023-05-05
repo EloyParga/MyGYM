@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appgym.R;
@@ -57,7 +56,7 @@ public class Adapter_Dia extends RecyclerView.Adapter<Adapter_Dia.ViewHolderDato
 
         public ViewHolderDatos( View itemView) {
             super(itemView);
-            lyColor = itemView.findViewById(R.id.lyColor);
+            lyColor = itemView.findViewById(R.id.ly);
             tvNombreDia = itemView.findViewById(R.id.tvNombreDia);
             tvGrupoMusc = itemView.findViewById(R.id.tvGrupoMusc);
         }

@@ -8,30 +8,48 @@
 
     <LinearLayout
         android:id="@+id/lyColor"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="20dp">
 
-        <TextView
-            android:id="@+id/tvNombreDia"
+        <LinearLayout
+            android:id="@+id/ly"
+            android:layout_width="410dp"
+            android:layout_height="64dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tvNombreDia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Lunes"
+                android:textColor="#020202"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvGrupoMusc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Pecho"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="Lunes"
-            android:textColor="#020202"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvGrupoMusc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="Pecho"
-            android:textSize="16sp" />
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/boton_play" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

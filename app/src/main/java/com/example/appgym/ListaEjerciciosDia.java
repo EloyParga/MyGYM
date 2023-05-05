@@ -64,9 +64,8 @@ public class ListaEjerciciosDia extends AppCompatActivity {
             etGrupoMusc.setText("Descanso");
 
         }
-        if(!swDescanso.isSelected()){
-            etGrupoMusc.setText("");
-        }
+
+
        // listarEjDB();
 
         adapter_ejercicio = new Adapter_Ejercicio(listaEj, new Adapter_Ejercicio.ItemClickListener() {
