@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.appgym.Adapter.Adapter_Ejercicio;
+import com.example.appgym.Adapter.Adapter_Rutina;
 import com.example.appgym.BD.BBDD_Helper;
 import com.example.appgym.BD.Estructura_BBDD;
 import com.example.appgym.Tablas.Dia;
@@ -48,32 +49,27 @@ public class ListaEjerciciosDia extends AppCompatActivity {
 
         rvEj = findViewById(R.id.rvEj);
 
-        etGrupoMusc= findViewById(R.id.etGrupoMusc);
+        etGrupoMusc = findViewById(R.id.etGrupoMusc);
 
         swDescanso = findViewById(R.id.swDescanso);
 
-        Bundle b= getIntent().getExtras();
-        pkRutina= b.getString("pkRutina");
+        Bundle b = getIntent().getExtras();
+        pkRutina = b.getString("pkRutina");
         pkDia = b.getString("pkDia");
 
-        rvEj.setLayoutManager( new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
+        rvEj.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         listaEj = new ArrayList<Ejercicio>();
 
-        if(swDescanso.isSelected()){
-            etGrupoMusc.setText("Descanso");
 
-        }
-
-
-       // listarEjDB();
+        listarEjDB();
 
         adapter_ejercicio = new Adapter_Ejercicio(listaEj, new Adapter_Ejercicio.ItemClickListener() {
             @Override
             public void onItemClick(Ejercicio details) {
                 Toast(details.getNombreEj() + " Clicked");
                 id_ej = details.getPkEj();
-                Alert(details);
+                Alert();
             }
         });
 
@@ -83,18 +79,30 @@ public class ListaEjerciciosDia extends AppCompatActivity {
         Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
     }
 
-    private void Alert(Ejercicio details){
+    private void Alert(){
 
         //Formato de alerta
         new AlertDialog.Builder(this)
-                .setTitle("¿ Desea Eliminar "+details.getNombreEj()+ " ?")
+                .setTitle("¿ Desea Eliminar el ejercicio?")
                 // .setIcon(R.drawable. ...)
 
                 //boton Si para eliminar
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int posicion) {
+                        SQLiteDatabase db = helper.getWritableDatabase();
 
+                        String selection = Estructura_BBDD.ID_EJERCICIO + " LIKE ?";
+
+                        String[] selectionArgs = {Integer.toString(id_ej)};
+
+                        //elimina de la BD
+                        db.delete(Estructura_BBDD.TABLE_NAME_EJERCICIO, selection, selectionArgs);
+                        Toast(id_ej + " Clicked");
+                        //refresca la lista
+                        refres();
+                        // cierra BD
+                        db.close();
                     }
                 })
                 //Boton No
@@ -105,11 +113,29 @@ public class ListaEjerciciosDia extends AppCompatActivity {
                     }
                 }).show();
     }
+
+    public  void refres(){
+        //muestra la lista de productos del arrayList
+        listaEj = new ArrayList<Ejercicio>();
+
+        listarEjDB();
+        adapter_ejercicio = new Adapter_Ejercicio(listaEj, new Adapter_Ejercicio.ItemClickListener() {
+            @Override
+            public void onItemClick(Ejercicio details) {
+                id_ej = details.getPkEj();
+                Alert();
+            }
+
+
+        });
+
+        rvEj.setAdapter(adapter_ejercicio);
+    }
     public void listarEjDB(){
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + Estructura_BBDD.TABLE_NAME_EJERCICIO +
                         " WHERE " + Estructura_BBDD.FK_PKDIA + " = ?",
-                new String[] {pkEj});
+                new String[] {pkDia});
         if(c.moveToFirst()){
             do{
                 Ejercicio ej = new Ejercicio(c.getInt(0),c.getString(1),c.getInt(2),c.getInt(3));
@@ -120,12 +146,20 @@ public class ListaEjerciciosDia extends AppCompatActivity {
 
     public void ActivityEj(View view){
         Intent i = new Intent(this, AddEj.class);
+        Bundle b = new Bundle();
+        b.putString("pkDia",pkDia);
+        i.putExtras(b);
         startActivity(i);
     }
 
     public void GuardarDatos(View view){
 
             int idEj = 0;
+
+            if(swDescanso.isSelected()){
+            etGrupoMusc.setText("Descanso");
+
+            }
 
             //verifica que los campos no esten vacios
             if(etGrupoMusc.getText().toString().isEmpty() ){
@@ -164,5 +198,12 @@ public class ListaEjerciciosDia extends AppCompatActivity {
 
 
     }
+
+    public void addDatosDia(Dia dia){
+        swDescanso.setChecked(dia.isDescanso());
+        etGrupoMusc.setText(dia.getGrupoMuscular());
+    }
+
+
 
 }

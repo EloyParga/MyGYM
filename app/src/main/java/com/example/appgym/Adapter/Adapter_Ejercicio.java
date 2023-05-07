@@ -22,7 +22,7 @@ public class Adapter_Ejercicio extends RecyclerView.Adapter<Adapter_Ejercicio.Vi
 
     public Adapter_Ejercicio.ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
         View vista = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_list_dia, null, false);
+                .inflate(R.layout.item_list_ejercicios, null, false);
         return new ViewHolderDatos(vista);
     }
 
@@ -55,9 +55,9 @@ public class Adapter_Ejercicio extends RecyclerView.Adapter<Adapter_Ejercicio.Vi
         }
         public void asignarDatos(Ejercicio ejercicio) {
 
-            tvNombreEj.setText(ejercicio.getReps());
-            tvSeries.setText(ejercicio.getSeries());
-            tvReps.setText(ejercicio.getNombreEj());
+            tvNombreEj.setText(ejercicio.getNombreEj());
+            tvSeries.setText(Integer.toString(ejercicio.getSeries()));
+            tvReps.setText(Integer.toString(ejercicio.getReps()));
         }
     }
 }

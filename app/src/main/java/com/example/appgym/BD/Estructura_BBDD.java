@@ -25,7 +25,7 @@ public class Estructura_BBDD {
     //Nombre tabla
     public static final String TABLE_NAME_DIA="DIA";
     //Campos tabla
-    public static final String ID_DIA = "IDRutina";
+    public static final String ID_DIA = "IDdia";
     public static final String NOMBRE_DIA = "NombreDia";
     public static final String GRUPO_MUSCULAR = "GrupoMuscular";
     public static final String DESCANSO = "Descanso";

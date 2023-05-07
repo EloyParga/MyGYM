@@ -82,6 +82,7 @@ public class DiaSemanaRutina extends AppCompatActivity {
                         //Lanza la activity donde se Inspeccionan los ejercicios de cada dia
                         ActivityListaEj();
 
+
                     }
                 })
                 //Boton No

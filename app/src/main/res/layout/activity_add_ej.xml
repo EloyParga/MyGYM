@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".AddEj">
 
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="21dp"
+        android:layout_height="25dp"
+        android:background="?attr/homeAsUpIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060000002"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -51,9 +65,11 @@
             android:id="@+id/btnAñadirEj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="AddEjercicio"
             android:text="Añadir"
             android:textColor="#000000"
             app:cornerRadius="15dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

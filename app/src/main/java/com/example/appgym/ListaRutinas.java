@@ -121,9 +121,6 @@ public class ListaRutinas extends AppCompatActivity {
                 listarRutinasDB();
 
 
-
-
-
         adapter_rutina = new Adapter_Rutina(listaRutinas, new Adapter_Rutina.ItemClickListener() {
             @Override
             public void onItemClick(Rutina details) {
