@@ -134,6 +134,12 @@ public class NuevaRutina1 extends AppCompatActivity {
         }
     }
 
+    public void Volver(View v){
+        finish();
+        Intent i =  new Intent(this,ListaRutinas.class);
+        startActivity(i);
+    }
+
 
 
 }

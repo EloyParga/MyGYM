@@ -3,6 +3,7 @@ package com.example.appgym;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -113,5 +114,11 @@ public class AddEj extends AppCompatActivity {
 
         }
 
+    }
+
+    public void atras(View v){
+        finish();
+        Intent i = new Intent(this, ListaEjerciciosDia.class);
+        startActivity(i);
     }
 }

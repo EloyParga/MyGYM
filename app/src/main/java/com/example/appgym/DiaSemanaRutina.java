@@ -56,7 +56,7 @@ public class DiaSemanaRutina extends AppCompatActivity {
         adapter_dia = new Adapter_Dia(listaDiasSemana, new Adapter_Dia.ItemClickListener() {
             @Override
             public void onItemClick(Dia details) {
-                Toast(details.getNombreDia() + " Clicked");
+                Toast.makeText(DiaSemanaRutina.this,details.getNombreDia() + " Clicked",Toast.LENGTH_SHORT).show();
                 id_dia = details.getPkDia();
                 Alert(details);
             }

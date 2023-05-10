@@ -149,6 +149,7 @@ public class ListaEjerciciosDia extends AppCompatActivity {
         Bundle b = new Bundle();
         b.putString("pkDia",pkDia);
         i.putExtras(b);
+        finish();
         startActivity(i);
     }
 
@@ -202,6 +203,12 @@ public class ListaEjerciciosDia extends AppCompatActivity {
     public void addDatosDia(Dia dia){
         swDescanso.setChecked(dia.isDescanso());
         etGrupoMusc.setText(dia.getGrupoMuscular());
+    }
+
+    public void atras(View v){
+        finish();
+        Intent i = new Intent(this, DiaSemanaRutina.class);
+        startActivity(i);
     }
 
 
