@@ -54,8 +54,12 @@ public class ListaEjerciciosDia extends AppCompatActivity {
         swDescanso = findViewById(R.id.swDescanso);
 
         Bundle b = getIntent().getExtras();
+
         pkRutina = b.getString("pkRutina");
         pkDia = b.getString("pkDia");
+
+
+
 
         rvEj.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -148,6 +152,7 @@ public class ListaEjerciciosDia extends AppCompatActivity {
         Intent i = new Intent(this, AddEj.class);
         Bundle b = new Bundle();
         b.putString("pkDia",pkDia);
+        b.putString("pkRutina",pkRutina);
         i.putExtras(b);
         finish();
         startActivity(i);
@@ -208,6 +213,9 @@ public class ListaEjerciciosDia extends AppCompatActivity {
     public void atras(View v){
         finish();
         Intent i = new Intent(this, DiaSemanaRutina.class);
+        Bundle b = new Bundle();
+        b.putString("pkRutina",pkRutina);
+        i.putExtras(b);
         startActivity(i);
     }
 

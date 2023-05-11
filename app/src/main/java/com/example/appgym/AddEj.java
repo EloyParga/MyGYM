@@ -25,6 +25,7 @@ public class AddEj extends AppCompatActivity {
     private EditText etReps;
 
     private String pkDia;
+    private String pkRutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class AddEj extends AppCompatActivity {
 
         Bundle b= getIntent().getExtras();
         pkDia= b.getString("pkDia");
+        pkRutina = b.getString("pkRutina");
 
     }
 
@@ -119,6 +121,10 @@ public class AddEj extends AppCompatActivity {
     public void atras(View v){
         finish();
         Intent i = new Intent(this, ListaEjerciciosDia.class);
+        Bundle b = new Bundle();
+        b.putString("pkDia",pkDia);
+        b.putString("pkRutina",pkRutina);
+        i.putExtras(b);
         startActivity(i);
     }
 }
