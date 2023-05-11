@@ -15,6 +15,9 @@ import com.example.appgym.BD.BBDD_Helper;
 import com.example.appgym.BD.Estructura_BBDD;
 import com.example.appgym.Tablas.Rutina;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegistActivity extends AppCompatActivity {
     private BBDD_Helper helper = new BBDD_Helper(this);
     private EditText etPersonName;
@@ -42,10 +45,11 @@ public class RegistActivity extends AppCompatActivity {
         if(etPersonName.getText().toString().isEmpty() ||
                 etApellidos.getText().toString().isEmpty() ||
                 etEmailAddress.getText().toString().isEmpty() ||
-                etPassword.getText().toString().isEmpty() ){
+                etPassword.getText().toString().isEmpty() ) {
 
-            Toast.makeText(getApplicationContext(),"No puedes dejar campos vacios", Toast.LENGTH_LONG).show();
-
+            Toast.makeText(getApplicationContext(), "No puedes dejar campos vacios", Toast.LENGTH_LONG).show();
+        }else if(!validarCorreoElectronico(etEmailAddress.getText().toString())){
+            Toast.makeText(getApplicationContext(),"Correo electrónico inválido", Toast.LENGTH_LONG).show();
         }else {
 
             //declara helper
@@ -64,13 +68,28 @@ public class RegistActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Usuario Registrado", Toast.LENGTH_LONG).show();
 
 
+            etPersonName.setText("");
+            etApellidos.setText("");
+            etEmailAddress.setText("");
+            etPassword.setText("");
+
         };
 
-        etPersonName.setText("");
-        etApellidos.setText("");
-        etEmailAddress.setText("");
-        etPassword.setText("");
 
 
+    }
+
+    private boolean validarCorreoElectronico(String correo) {
+        // Expresión regular para validar el formato del correo electrónico
+        String patron = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+
+        // Compila la expresión regular en un patrón
+        Pattern pattern = Pattern.compile(patron);
+
+        // Crea un objeto Matcher para el correo proporcionado
+        Matcher matcher = pattern.matcher(correo);
+
+        // Retorna true si el correo coincide con el patrón, de lo contrario, retorna false
+        return matcher.matches();
     }
 }
