@@ -73,7 +73,8 @@ public class DiaSemanaRutina extends AppCompatActivity {
         //Formato de alerta
         new AlertDialog.Builder(this)
                 .setTitle("¿ Desea seleccionar el "+details.getNombreDia()+ " ?")
-                // .setIcon(R.drawable. ...)
+                //Se pone un icono a la ventana de alerta
+                .setIcon(R.drawable.logo)
 
                 //boton Si
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {

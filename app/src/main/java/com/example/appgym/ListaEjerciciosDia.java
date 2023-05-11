@@ -88,7 +88,8 @@ public class ListaEjerciciosDia extends AppCompatActivity {
         //Formato de alerta
         new AlertDialog.Builder(this)
                 .setTitle("¿ Desea Eliminar el ejercicio?")
-                // .setIcon(R.drawable. ...)
+                //Se pone un icono a la ventana de alerta
+                .setIcon(R.drawable.logo)
 
                 //boton Si para eliminar
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {

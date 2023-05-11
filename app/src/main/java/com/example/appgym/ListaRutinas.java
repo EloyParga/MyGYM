@@ -74,7 +74,8 @@ public class ListaRutinas extends AppCompatActivity {
         //Formato de alerta
         new AlertDialog.Builder(this)
                 .setTitle("Editar")
-               // .setIcon(R.drawable. ...)
+                //Se pone el logo de la App a la ventana de alerta
+               .setIcon(R.drawable.logo)
 
                 //Boton cancelar
                 .setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
