@@ -22,8 +22,9 @@
             android:id="@+id/etGrupoMusc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoText="false"
             android:hint="Grupo Muscular"
-            android:inputType="textPersonName" />
+            android:inputType="text|textCapCharacters|textCapSentences|textCapWords" />
 
         <Switch
             android:id="@+id/swDescanso"

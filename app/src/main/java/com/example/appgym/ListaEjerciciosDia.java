@@ -58,14 +58,17 @@ public class ListaEjerciciosDia extends AppCompatActivity {
         pkRutina = b.getString("pkRutina");
         pkDia = b.getString("pkDia");
 
-
+        if(etGrupoMusc.getText().toString().toUpperCase()=="Descanso".toUpperCase()){
+            swDescanso.setChecked(true);
+        }
 
 
         rvEj.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         listaEj = new ArrayList<Ejercicio>();
 
-
+        Dia dia = obtenerDiaDeLaBaseDeDatos();
+        addDatosDia(dia);
         listarEjDB();
 
         adapter_ejercicio = new Adapter_Ejercicio(listaEj, new Adapter_Ejercicio.ItemClickListener() {
@@ -163,8 +166,8 @@ public class ListaEjerciciosDia extends AppCompatActivity {
 
             int idEj = 0;
 
-            if(swDescanso.isSelected()){
-            etGrupoMusc.setText("Descanso");
+            if(swDescanso.isChecked()){
+            etGrupoMusc.setText("Descanso".toUpperCase());
 
             }
 
@@ -178,7 +181,7 @@ public class ListaEjerciciosDia extends AppCompatActivity {
                 //declara helper
                 SQLiteDatabase db = helper.getWritableDatabase();
 
-                int descanso = swDescanso.isSelected() ? 1 : 0;
+                int descanso = swDescanso.isChecked() ? 1 : 0;
 
                 //Valores que se van a Actualizar
                 ContentValues values = new ContentValues();
@@ -206,8 +209,63 @@ public class ListaEjerciciosDia extends AppCompatActivity {
 
     }
 
+    private Dia obtenerDiaDeLaBaseDeDatos() {
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        // Define las columnas que deseas recuperar
+        String[] projection = {
+                Estructura_BBDD.GRUPO_MUSCULAR,
+                Estructura_BBDD.DESCANSO
+        };
+
+        // Define la cláusula WHERE para filtrar los resultados si es necesario
+        String selection = Estructura_BBDD.ID_DIA + " = ?";
+        String[] selectionArgs = {pkDia};
+
+        // Realiza la consulta a la base de datos
+        Cursor cursor = db.query(
+                Estructura_BBDD.TABLE_NAME_DIA, // Nombre de la tabla
+                projection, // Columnas a recuperar
+                selection, // Cláusula WHERE
+                selectionArgs, // Argumentos de la cláusula WHERE
+                null, // GROUP BY
+                null, // HAVING
+                null // ORDER BY
+        );
+
+        Dia dia = null;
+
+        // Verifica si se encontraron resultados
+        if (cursor.moveToFirst()) {
+            // Recupera los valores de las columnas
+            String grupoMuscular = cursor.getString(cursor.getColumnIndexOrThrow(Estructura_BBDD.GRUPO_MUSCULAR));
+            int descanso =  cursor.getInt(cursor.getColumnIndexOrThrow(Estructura_BBDD.DESCANSO));
+
+            boolean descans;
+
+            if (descanso==1){
+                descans=true;
+            }else {
+                descans = false;
+            }
+
+            // Crea un objeto Dia con los valores recuperados
+            dia = new Dia(grupoMuscular, descans);
+        }
+
+        // Cierra el cursor y la base de datos
+        cursor.close();
+        db.close();
+
+        return dia;
+    }
+
     public void addDatosDia(Dia dia){
-        swDescanso.setChecked(dia.isDescanso());
+        if(dia.isDescanso()==true){
+            swDescanso.setChecked(true);
+        }else{
+            swDescanso.setChecked(false);
+        }
         etGrupoMusc.setText(dia.getGrupoMuscular());
     }
 

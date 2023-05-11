@@ -63,12 +63,12 @@ public class Adapter_Dia extends RecyclerView.Adapter<Adapter_Dia.ViewHolderDato
         public void asignarDatos(Dia dia) {
 
             tvNombreDia.setText(dia.getNombreDia());
-            tvGrupoMusc.setText(dia.getGrupoMuscular());
+            tvGrupoMusc.setText(dia.getGrupoMuscular().toUpperCase());
 
-            if(tvGrupoMusc.getText().toString().contains("Descanso")){
+            if(tvGrupoMusc.getText().toString().contains("Descanso".toUpperCase())){
                 lyColor.setBackgroundColor(Color.argb(204, 70, 248, 69));
             }
-            if(!tvGrupoMusc.getText().toString().contains("Descanso")){
+            if(!tvGrupoMusc.getText().toString().contains("Descanso".toUpperCase())){
                 lyColor.setBackgroundColor(Color.argb(255, 255, 255, 255));
             }
         }

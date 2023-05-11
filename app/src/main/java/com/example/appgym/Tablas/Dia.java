@@ -15,6 +15,10 @@ public class Dia {
         this.nombreDia = nombreDia;
         this.fkPkRutina=fkPkRutina;
     }
+    public Dia(String grupoMuscular, boolean descanso) {
+        this.grupoMuscular = grupoMuscular;
+        this.descanso = descanso;
+    }
 
 
 
