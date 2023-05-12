@@ -23,6 +23,7 @@ public class NuevaRutina1 extends AppCompatActivity {
 
     private int pkUsuario;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,7 @@ public class NuevaRutina1 extends AppCompatActivity {
         Bundle b= getIntent().getExtras();
         if(b !=null){
             pkUsuario= Integer.parseInt(b.getString("pkUsuario"));
+
         }else{
             Toast.makeText(getApplicationContext(),"El Bundel es Null",Toast.LENGTH_SHORT).show();
         }
@@ -137,6 +139,9 @@ public class NuevaRutina1 extends AppCompatActivity {
     public void Volver(View v){
         finish();
         Intent i =  new Intent(this,ListaRutinas.class);
+        Bundle b = new Bundle();
+        b.putString("pkUsuario",Integer.toString(pkUsuario) );
+        i.putExtras(b);
         startActivity(i);
     }
 
