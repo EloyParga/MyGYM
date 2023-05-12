@@ -106,7 +106,7 @@ public class NuevaRutina1 extends AppCompatActivity {
 
 
             Rutina rutina = new Rutina(idRutina,etNameRutina.getText().toString(),pkUsuario);
-            Toast.makeText(this, Integer.toString(idRutina), Toast.LENGTH_SHORT).show();
+
 
             etNameRutina.setText("");
 
@@ -116,7 +116,7 @@ public class NuevaRutina1 extends AppCompatActivity {
             for (String array:ArrayDias) {
                 values = new ContentValues();
                 values.put(Estructura_BBDD.NOMBRE_DIA, array);
-                values.put(Estructura_BBDD.GRUPO_MUSCULAR, " ");
+                values.put(Estructura_BBDD.GRUPO_MUSCULAR, "");
                 values.put(Estructura_BBDD.DESCANSO, 0);
                 values.put(Estructura_BBDD.FK_PKS, idRutina);
                 db.insert(Estructura_BBDD.TABLE_NAME_DIA, null, values);
@@ -124,7 +124,7 @@ public class NuevaRutina1 extends AppCompatActivity {
 
 
 
-            Toast.makeText(getApplicationContext(), "AÑADIDO 7 DIAS", Toast.LENGTH_LONG).show();
+
 
             Intent i =  new Intent(this,ListaRutinas.class);
             Bundle b = new Bundle(); //envia la pk del usuario a la activity siguiente

@@ -64,9 +64,6 @@ public class DiaSemanaRutina extends AppCompatActivity {
 
         rvDias.setAdapter(adapter_dia);
     }
-    private void Toast(String msg){
-        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
-    }
 
     private void Alert(Dia details){
 

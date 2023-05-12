@@ -56,7 +56,6 @@ public class ListaRutinas extends AppCompatActivity {
         adapter_rutina = new Adapter_Rutina(listaRutinas, new Adapter_Rutina.ItemClickListener() {
             @Override
             public void onItemClick(Rutina details) {
-                Toast(details.getNombreS() + " Clicked");
                 id_rutina = details.getPkRutina();
                 Alert();
             }
@@ -106,7 +105,6 @@ public class ListaRutinas extends AppCompatActivity {
 
                         //elimina de la BD
                         db.delete(Estructura_BBDD.TABLE_NAME_RUTINA, selection, selectionArgs);
-                        Toast(id_rutina + " Clicked");
                         //refresca la lista
                         refres();
                         // cierra BD
@@ -125,7 +123,6 @@ public class ListaRutinas extends AppCompatActivity {
         adapter_rutina = new Adapter_Rutina(listaRutinas, new Adapter_Rutina.ItemClickListener() {
             @Override
             public void onItemClick(Rutina details) {
-                Toast(details.getNombreS() + " Clicked");
                 id_rutina = details.getPkRutina();
                 Alert();
 

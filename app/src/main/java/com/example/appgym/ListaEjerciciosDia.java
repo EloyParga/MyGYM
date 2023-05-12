@@ -212,17 +212,17 @@ public class ListaEjerciciosDia extends AppCompatActivity {
     private Dia obtenerDiaDeLaBaseDeDatos() {
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        // Define las columnas que deseas recuperar
+        // columnas que deseas recuperar
         String[] projection = {
                 Estructura_BBDD.GRUPO_MUSCULAR,
                 Estructura_BBDD.DESCANSO
         };
 
-        // Define la cláusula WHERE para filtrar los resultados si es necesario
+
         String selection = Estructura_BBDD.ID_DIA + " = ?";
         String[] selectionArgs = {pkDia};
 
-        // Realiza la consulta a la base de datos
+        // consulta a la base de datos
         Cursor cursor = db.query(
                 Estructura_BBDD.TABLE_NAME_DIA, // Nombre de la tabla
                 projection, // Columnas a recuperar
