@@ -174,7 +174,7 @@ public class ListaEjerciciosDia extends AppCompatActivity {
             //verifica que los campos no esten vacios
             if(etGrupoMusc.getText().toString().isEmpty() ){
 
-                Toast.makeText(getApplicationContext(),"Añade nombre a tu rutina", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Añade Grupo Muscular", Toast.LENGTH_LONG).show();
 
             }else {
 
