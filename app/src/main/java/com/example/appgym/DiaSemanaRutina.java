@@ -22,7 +22,7 @@ import com.example.appgym.Tablas.Rutina;
 import java.util.ArrayList;
 
 public class DiaSemanaRutina extends AppCompatActivity {
-
+    //Variables
     private BBDD_Helper helper = new BBDD_Helper(this);
     private ArrayList<Dia> listaDiasSemana;
     private RecyclerView rvDias;
@@ -92,6 +92,7 @@ public class DiaSemanaRutina extends AppCompatActivity {
                 }).show();
     }
 
+    //Metodo para listar los Dias de la semana de la BD
     public void listarDiasDB(){
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + Estructura_BBDD.TABLE_NAME_DIA +
@@ -104,7 +105,10 @@ public class DiaSemanaRutina extends AppCompatActivity {
             }while (c.moveToNext());
         }
     }
-
+    /*
+    Funcion que inicia la activity ListaEjercicioDia y envia los bundels correspondientes
+    para poder trabajar con las pk en la bd
+     */
     public void ActivityListaEj(){
         Intent i = new Intent(this, ListaEjerciciosDia.class);
         Bundle b = new Bundle();

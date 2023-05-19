@@ -12,6 +12,11 @@ import java.util.ArrayList;
 
 public class Adapter_Ejercicio extends RecyclerView.Adapter<Adapter_Ejercicio.ViewHolderDatos> {
 
+    /**
+     * Esta clase es el Adapter que expecifica como van a funcionar los Items dentro del RecyclerView
+     * en la activity lista_ejercicios_dia.xml
+     */
+
     public ArrayList<Ejercicio> listaEj;
     private ItemClickListener itemListener;
 

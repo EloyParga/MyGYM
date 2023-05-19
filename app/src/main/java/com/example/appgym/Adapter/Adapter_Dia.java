@@ -16,7 +16,10 @@ import com.example.appgym.Tablas.Dia;
 import java.util.ArrayList;
 
 public class Adapter_Dia extends RecyclerView.Adapter<Adapter_Dia.ViewHolderDatos> {
-
+    /**
+     * Esta clase es el Adapter que expecifica como van a funcionar los Items dentro del RecyclerView
+     * en la activity dia_semana_rutina.xml
+     */
     public ArrayList<Dia>listaDias;
     private ItemClickListener itemListener;
     private LinearLayout lyColor;
@@ -60,6 +63,10 @@ public class Adapter_Dia extends RecyclerView.Adapter<Adapter_Dia.ViewHolderDato
             tvNombreDia = itemView.findViewById(R.id.tvNombreDia);
             tvGrupoMusc = itemView.findViewById(R.id.tvGrupoMusc);
         }
+        /*
+        Metodo que sirve para asignar datos y para cambiar el color del Layout
+        dependiendo de si es dia de descanso o no
+         */
         public void asignarDatos(Dia dia) {
 
             tvNombreDia.setText(dia.getNombreDia());

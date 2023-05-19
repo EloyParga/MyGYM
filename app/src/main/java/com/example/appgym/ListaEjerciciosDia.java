@@ -29,7 +29,7 @@ import com.example.appgym.Tablas.Rutina;
 import java.util.ArrayList;
 
 public class ListaEjerciciosDia extends AppCompatActivity {
-
+    //VARIABLES
     private BBDD_Helper helper = new BBDD_Helper(this);
     private ArrayList<Ejercicio> listaEj;
     private RecyclerView rvEj;
@@ -39,7 +39,6 @@ public class ListaEjerciciosDia extends AppCompatActivity {
     private String pkEj;
     private String pkDia;
     private int id_ej;
-
     private String pkRutina;
 
     @Override

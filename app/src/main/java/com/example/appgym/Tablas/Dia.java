@@ -20,8 +20,6 @@ public class Dia {
         this.descanso = descanso;
     }
 
-
-
     public int getPkDia() {
         return pkDia;
     }
@@ -34,7 +32,6 @@ public class Dia {
         return grupoMuscular;
     }
 
-    public int getFkPkRutina() { return fkPkRutina;}
 
     public void setGrupoMuscular(String grupoMuscular) {
         this.grupoMuscular = grupoMuscular;

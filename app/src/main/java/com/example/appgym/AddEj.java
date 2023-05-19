@@ -17,7 +17,11 @@ import com.example.appgym.Tablas.Ejercicio;
 import com.example.appgym.Tablas.Rutina;
 
 public class AddEj extends AppCompatActivity {
+    /**
+     * Esta clase se conecta a la BD y contiene las funcionalidades para añadir los ej a la base de datos
+     */
 
+    //VARIABLES
     private BBDD_Helper helper = new BBDD_Helper(this);
 
     private EditText etNameEj;
@@ -43,6 +47,10 @@ public class AddEj extends AppCompatActivity {
 
     }
 
+    /**
+     * Metodo que añade ejercicio a la base de datos para ello se le pasa un view por parametros
+     * @param v
+     */
     public void AddEjercicio(View v){
         int idEj = 0 ;
 

@@ -13,6 +13,10 @@ import com.example.appgym.Tablas.Rutina;
 import java.util.ArrayList;
 
 public class Adapter_Rutina extends  RecyclerView.Adapter<Adapter_Rutina.ViewHolderDatos> {
+    /**
+     * Esta clase es el Adapter que expecifica como van a funcionar los Items dentro del RecyclerView
+     * en la activity lista_rutinas.xml
+     */
 
     //Declarar Array
     public ArrayList<Rutina> listaRutinas;

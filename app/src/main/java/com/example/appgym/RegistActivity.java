@@ -18,6 +18,10 @@ import com.example.appgym.Tablas.Rutina;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Clase donde el usuario puede registrarse en la BD,
+ * esta clase verifica que el correo es correcto y que los campos esten rellenados
+ */
 public class RegistActivity extends AppCompatActivity {
     private BBDD_Helper helper = new BBDD_Helper(this);
     private EditText etPersonName;
@@ -79,6 +83,7 @@ public class RegistActivity extends AppCompatActivity {
 
     }
 
+    //Metodo para validar el correo
     private boolean validarCorreoElectronico(String correo) {
         // Expresión regular para validar el formato del correo electrónico
         String patron = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";

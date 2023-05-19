@@ -16,7 +16,9 @@ import com.example.appgym.BD.BBDD_Helper;
 import com.example.appgym.BD.Estructura_BBDD;
 
 public class LoguinActivity extends AppCompatActivity {
-
+    /**
+     * Clase que verifica que el usuario esta registrado correctamente en la BD
+     */
     private BBDD_Helper helper = new BBDD_Helper(this);
 
     private EditText etPass;
